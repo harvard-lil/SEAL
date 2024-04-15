@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "empirical-interpretability-llms-value-alignment"
+version = "0.0.1"
+description = ""
+authors = ["Your Name <you@example.com>"]
+license = "MIT"
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.11"
+openai = "^1.18.0"
+ollama = "^0.1.8"
+transformers = "^4.39.3"
+datasets = "^2.18.0"
+python-dotenv = "^1.0.1"
+click = "^8.1.7"
+torch = "^2.2.2"
+sentence-transformers = "^2.6.1"
+tiktoken = "^0.6.0"
+python-slugify = "^8.0.4"
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.4.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 100
