@@ -144,6 +144,9 @@ poetry run python ivan.py taxonomy run-control-batch --limit=5
 
 # Run command using a specific model
 poetry run python ivan.py taxonomy run-control-batch --model=llama3:8b-instruct-fp16
+
+# Run command against a specific set of row_ids
+poetry run python ivan.py taxonomy run-control-batch --set-row-ids="98434, 156621, 149074, 103182, 82050"
 ```
 
 Results are saved as under `data/taxonomy-control`.
