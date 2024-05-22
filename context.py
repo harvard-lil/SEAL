@@ -57,7 +57,7 @@ class IVANContext:
             "OPENAI_ORG_ID",
         ]:
             try:
-                assert os.environ.get("OLLAMA_API_HOST", None)
+                assert os.environ.get(env_var_name, None)
             except Exception:
                 raise KeyError(f"Required environment variable {env_var_name} not found.")
 
