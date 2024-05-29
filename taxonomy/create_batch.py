@@ -40,9 +40,6 @@ def create_batch(ctx: IVANContext, limit: int):
     input_tokens = 0
     output_tokens = 0
 
-    openai_file_upload = None
-    openai_batch = None
-
     # Create output dir
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
@@ -106,7 +103,7 @@ def create_batch(ctx: IVANContext, limit: int):
     input_cost = ((input_tokens / 1_000_000) * 10.0) / 2
     output_cost = ((output_tokens / 1_000_000) * 30.0) / 2
 
-    click.echo(f"Batch input saved to disk.")
+    click.echo("Batch input saved to disk.")
     click.echo(f"Estimated input tokens: {input_tokens}")
     click.echo(f"Estimated output tokens: {output_tokens}")
     click.echo(f"Estimated input cost: {locale.currency(input_cost, grouping=True)}")
