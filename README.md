@@ -1,4 +1,4 @@
-# IVAN: Empirical Interpretability for Value Alignment in Large Language Models
+# IVAN: Empirical Interpretability for Value Alignment in RLHF
 
 > TODO: Link to paper
 
