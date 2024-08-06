@@ -6,9 +6,9 @@ import random
 import click
 from slugify import slugify
 
-from context import IVANContext
+from context import SEALContext
 
-OUTPUT_DIR = os.path.join(IVANContext.data_dir, "taxonomy-control")
+OUTPUT_DIR = os.path.join(SEALContext.data_dir, "taxonomy-control")
 """ Output path for this command. """
 
 
@@ -33,7 +33,7 @@ OUTPUT_DIR = os.path.join(IVANContext.data_dir, "taxonomy-control")
     required=False,
     help="Coma-separated list of row IDs. Will override limit and random selection of rows if set.",
 )
-def run_control_batch(ctx: IVANContext, model: str, limit: int, set_row_ids: str):
+def run_control_batch(ctx: SEALContext, model: str, limit: int, set_row_ids: str):
     """
     In this experiment, GPT-X is used to generate an alignment taxonomy of the Anthropic/hh-rlhf dataset.
     This command picks random entries from the dataset and runs the same experiment against an open source model, as a way to generate control data.

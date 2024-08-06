@@ -4,9 +4,9 @@ import traceback
 import json
 import csv
 
-from context import IVANContext
+from context import SEALContext
 
-OUTPUT_DIR = os.path.join(IVANContext.data_dir, "taxonomy-output")
+OUTPUT_DIR = os.path.join(SEALContext.data_dir, "taxonomy-output")
 """ Output path for this command. """
 
 
@@ -18,7 +18,7 @@ OUTPUT_DIR = os.path.join(IVANContext.data_dir, "taxonomy-output")
     type=str,
     help="Coma-separated list of OpenAI batch operation identifiers to retrieve and process.",
 )
-def process_batch(ctx: IVANContext, batch_ids: str):
+def process_batch(ctx: SEALContext, batch_ids: str):
     """
     In this experiment, GPT-X is used to generate an alignment taxonomy of the Anthropic/hh-rlhf dataset.
     This command allows for pulling a series of completed batches from the OpenAI API and:

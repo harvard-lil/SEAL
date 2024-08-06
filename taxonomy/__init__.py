@@ -2,7 +2,7 @@ import json
 
 import click
 
-from context import IVANContext
+from context import SEALContext
 from .create_batch import create_batch
 from .process_batch import process_batch
 from .run_control_batch import run_control_batch
@@ -86,7 +86,7 @@ TARGET_MODEL = "gpt-4-turbo-2024-04-09"
 
 @click.group("taxonomy")
 @click.pass_obj
-def taxonomy(ctx: IVANContext):
+def taxonomy(ctx: SEALContext):
     """Defines "taxonomy" commands group."""
     pass
 
@@ -121,7 +121,7 @@ def get_taxonomy_analysis_prompt(text: str, filter_keys=[]) -> str:
 
 
 def run_taxonomy_analysis(
-    ctx: IVANContext,
+    ctx: SEALContext,
     prompt: str,
     model=TARGET_MODEL,
 ) -> dict:

@@ -2,7 +2,7 @@
 
 import click
 
-from context import IVANContext
+from context import SEALContext
 from compare import compare
 from rewrite import rewrite
 from taxonomy import taxonomy
@@ -11,7 +11,7 @@ from taxonomy import taxonomy
 @click.group()
 @click.pass_context
 def cli(ctx):
-    ctx.obj = IVANContext()
+    ctx.obj = SEALContext()
 
 
 cli.add_command(compare)

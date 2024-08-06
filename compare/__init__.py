@@ -7,9 +7,9 @@ import click
 import torch
 from slugify import slugify
 
-from context import IVANContext
+from context import SEALContext
 
-OUTPUT_DIR = os.path.join(IVANContext.data_dir, "compare")
+OUTPUT_DIR = os.path.join(SEALContext.data_dir, "compare")
 """ Output path for this command. """
 
 RM_MODELS = [
@@ -52,7 +52,7 @@ STATS_FORMAT = {
     type=int,
     help="If set and > 0, only processes up to X rows from the RLHF dataset.",
 )
-def compare(ctx: IVANContext, limit: int):
+def compare(ctx: SEALContext, limit: int):
     """
     Evaluates a series of reward models against an RLHF dataset.
     Collects reward scores and assesses whether the RMs align with human preferences.

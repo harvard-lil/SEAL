@@ -6,9 +6,9 @@ import traceback
 import click
 import tiktoken
 
-from context import IVANContext
+from context import SEALContext
 
-OUTPUT_DIR = os.path.join(IVANContext.data_dir, "taxonomy-input")
+OUTPUT_DIR = os.path.join(SEALContext.data_dir, "taxonomy-input")
 """ Output path for this command. """
 
 MAX_FILESIZE = 100 * 1000 * 1000
@@ -23,7 +23,7 @@ MAX_FILESIZE = 100 * 1000 * 1000
     type=int,
     help="If set and > 0, only processes up to X rows from the RLHF dataset. 1 row = 2 requests.",
 )
-def create_batch(ctx: IVANContext, limit: int):
+def create_batch(ctx: SEALContext, limit: int):
     """
     In this experiment, GPT-X is used to generate an alignment taxonomy of the Anthropic/hh-rlhf dataset.
     This command generates a series of batch files that can be used by OpenAI's API to process a large amount of requests efficiently.
@@ -134,7 +134,7 @@ def create_batch(ctx: IVANContext, limit: int):
         click.echo(f"- {batch_id}")
 
 
-def upload_file_and_create_batch(ctx: IVANContext, input_filepath: str) -> str:
+def upload_file_and_create_batch(ctx: SEALContext, input_filepath: str) -> str:
     """
     Sends a batch file to OpenAI, starts a batch operation and returns the batch id.
     """

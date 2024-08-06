@@ -13,7 +13,7 @@ import torch
 load_dotenv()
 
 
-class IVANContext:
+class SEALContext:
     """
     APP-wide context.
     Initialized on app boot-up and passed down to all commands by Click.

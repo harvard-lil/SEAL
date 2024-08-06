@@ -7,10 +7,10 @@ import json
 import click
 import sentence_transformers
 
-from context import IVANContext
+from context import SEALContext
 from taxonomy import get_taxonomy_analysis_prompt, run_taxonomy_analysis
 
-OUTPUT_DIR = os.path.join(IVANContext.data_dir, "rewrite")
+OUTPUT_DIR = os.path.join(SEALContext.data_dir, "rewrite")
 """ Output path for this command. """
 
 DEFAULT_OLLAMA_MODEL_ID = "mistral:7b-instruct-fp16"
@@ -105,7 +105,7 @@ TEXT_SIMILARITY_MODEL_NAME = "BAAI/bge-m3"
     type=int,
     help="Determines how many rows should be rewritten. Defaults to 10.",
 )
-def rewrite(ctx: IVANContext, ollama_model_id: str, limit: int):
+def rewrite(ctx: SEALContext, ollama_model_id: str, limit: int):
     """
     Rewrites and analyses a set number of entries of the RLHF dataset.
     Collects reward scores, text similarity, and partial taxonomy analysis for both original and rewritten entries.
@@ -165,7 +165,7 @@ def rewrite(ctx: IVANContext, ollama_model_id: str, limit: int):
 
 
 def rewrite_entry(
-    ctx: IVANContext,
+    ctx: SEALContext,
     entry: dict,
     ollama_model_id: str,
 ) -> None:
@@ -207,7 +207,7 @@ def rewrite_entry(
         entry[output_key] = rewritten_text
 
 
-def evaluate_entry(ctx: IVANContext, entry: dict) -> None:
+def evaluate_entry(ctx: SEALContext, entry: dict) -> None:
     """
     For each entry:
     - Evaluates text similarity between original and rewritten text
