@@ -26,7 +26,7 @@ class SEALContext:
     """ Reference to current Ollama API client. """
 
     rlhf_dataset_name = "Anthropic/hh-rlhf"
-    """ Name of the RLHF dataset analyzed by IVAN. """
+    """ Name of the RLHF dataset analyzed by SEAL. """
 
     rlhf_dataset = None
     """ Reference to RLHF dataset loaded in memory. """
