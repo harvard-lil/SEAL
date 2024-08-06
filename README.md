@@ -1,6 +1,6 @@
-# IVAN: Empirical Interpretability for Value Alignment in RLHF
+# SEAL: Systematic Error Analysis for Value ALignment
 
-> TODO: Link to paper
+> 🚧 Work in progress
 
 ## Summary
 - [Getting started](#getting-started)
@@ -20,7 +20,7 @@
 
 ```bash
 # Clone project
-git clone https://github.com/harvard-lil/IVAN.git
+git clone https://github.com/harvard-lil/SEAL.git
 
 # Install project and its dependencies
 poetry install
@@ -45,10 +45,10 @@ Currently set up to evaluate [Anthropic/hh-rlhf](https://huggingface.co/datasets
 - [OpenAssistant/reward-model-electra-large-discriminator](https://huggingface.co/OpenAssistant/reward-model-electra-large-discriminator)
 
 ```bash
-poetry run python ivan.py compare
+poetry run python seal.py compare
 
 # Only evaluate the first 100 entries:
-poetry run python ivan.py compare --limit=100
+poetry run python seal.py compare --limit=100
 ```
 
 Results are saved as CSV under `data/compare`.
@@ -70,10 +70,10 @@ By default, this command uses the [Ollama API](https://ollama.com/) to run infer
 
 ```bash
 # Runs the rewrite experiment
-poetry run python ivan.py rewrite --limit=100
+poetry run python seal.py rewrite --limit=100
 
 # Runs the rewrite experiment using a specific text generation model
-poetry run python ivan.py rewrite --limit=100 --ollama-model-id="llama2:13b-instruct-fp16"
+poetry run python seal.py rewrite --limit=100 --ollama-model-id="llama2:13b-instruct-fp16"
 ```
 
 Results are saved as CSV under `data/rewrite`.
@@ -92,10 +92,10 @@ The command will also perform a cost estimate and ask for confirmation before up
 
 ```bash
 # Run the taxonomy experiment against the whole dataset
-poetry run python ivan.py taxonomy create-batch
+poetry run python seal.py taxonomy create-batch
 
 # Run the experiment against a subset
-poetry run python ivan.py taxonomy create-batch --limit=100
+poetry run python seal.py taxonomy create-batch --limit=100
 ```
 
 The command will return a series of batch ids that can be used to pull results from the experiment with `taxonomy process-batch`.
@@ -118,7 +118,7 @@ This command allows for pulling a series of completed batches from the OpenAI AP
 This command allows for patching invalid entries on the fly using the OpenAI API (optional).
 
 ```bash
-poetry run python ivan.py taxonomy process-batch --batch-ids="batch_foobar1,batch_foobar2,batch_foobar3"
+poetry run python seal.py taxonomy process-batch --batch-ids="batch_foobar1,batch_foobar2,batch_foobar3"
 ```
 
 Results are saved as under `data/taxonomy-output`.
@@ -137,16 +137,16 @@ This command picks random entries from the dataset and runs the same experiment 
 By default, this command uses the [Ollama API](https://ollama.com/) to run inference against [gemma:7b-instruct-fp16](https://ollama.com/library/gemma:7b-instruct-fp16). An Ollama server must be ready, and the targeted model must be available.
 
 ```bash
-poetry run python ivan.py taxonomy run-control-batch
+poetry run python seal.py taxonomy run-control-batch
 
 # Only run on 5 rows of the Anthropic/hh-rlhf dataset
-poetry run python ivan.py taxonomy run-control-batch --limit=5
+poetry run python seal.py taxonomy run-control-batch --limit=5
 
 # Run command using a specific model
-poetry run python ivan.py taxonomy run-control-batch --model=llama3:8b-instruct-fp16
+poetry run python seal.py taxonomy run-control-batch --model=llama3:8b-instruct-fp16
 
 # Run command against a specific set of row_ids
-poetry run python ivan.py taxonomy run-control-batch --set-row-ids="98434, 156621, 149074, 103182, 82050"
+poetry run python seal.py taxonomy run-control-batch --set-row-ids="98434, 156621, 149074, 103182, 82050"
 ```
 
 Results are saved as under `data/taxonomy-control`.
