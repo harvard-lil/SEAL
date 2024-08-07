@@ -1,5 +1,7 @@
 # SEAL: Systematic Error Analysis for Value ALignment
 
+Official repo for the paper **"SEAL: Systematic Error Analysis for Value ALignment"** by Manon Revel, Matteo Cargnelutti, Tyna Eloundou and Greg Leppert (2024)
+
 > 🚧 Work in progress
 
 ## Summary
@@ -36,7 +38,7 @@ nano .env # (or any text editor)
 
 ## CLI: `compare`
 
-This command allows for evaluating a series of reward models against Anthropic/hh-rlhf, and assess whether they align with human preferences.
+This command allows for evaluating a series of reward models against the Anthropic/hh-rlhf alignment dataset and assesses whether they align with preferences expressed in the dataset.
 
 Currently set up to evaluate [Anthropic/hh-rlhf](https://huggingface.co/datasets/Anthropic/hh-rlhf) against:
 - [OpenAssistant/reward-model-deberta-v3-large-v2](https://huggingface.co/OpenAssistant/reward-model-deberta-v3-large-v2)
@@ -59,7 +61,7 @@ Results are saved as CSV under `data/compare`.
 
 ## CLI: `rewrite`
 
-This command slightly rewrites and a set number of rows from the Anthropic/hh-rlhf using a text generation model, and analyses it using: 
+This command slightly rewrites a set number of rows from the Anthropic/hh-rlhf alignment dataset using a text generation model, and analyses it using: 
 - Two reward models, to measure how much the rewriting affected rewards:
   - [OpenAssistant/reward-model-deberta-v3-large-v2](https://huggingface.co/OpenAssistant/reward-model-deberta-v3-large-v2), which was fine-tuned using Anthropic/hh-rlhf (`ALIGNED`)
   - [OpenAssistant/reward-model-deberta-v3-large](https://huggingface.co/OpenAssistant/reward-model-deberta-v3-large), which was not (`CONTROL`)
@@ -131,7 +133,7 @@ Results are saved as under `data/taxonomy-output`.
 
 **Alignment Taxonomy part 3:**
 
-In this experiment, GPT-X is used to generate an alignment taxonomy of the Anthropic/hh-rlhf dataset.
+In this experiment, GPT-X is used to generate an alignment taxonomy of the Anthropic/hh-rlhf alignment dataset.
 This command picks random entries from the dataset and runs the same experiment against an open source model, as a way to generate control data.
 
 By default, this command uses the [Ollama API](https://ollama.com/) to run inference against [gemma:7b-instruct-fp16](https://ollama.com/library/gemma:7b-instruct-fp16). An Ollama server must be ready, and the targeted model must be available.

@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "empirical-interpretability-llms-value-alignment"
+name = "seal-systematic-error-analysis-for-value-alignment"
 version = "0.0.1"
 description = ""
 authors = ["Your Name <you@example.com>"]

@@ -5,7 +5,7 @@ library(zoo)
 library(car)
 
 ## Reward Shift Analysis
-data <- read.csv("ivan-rlhf-analysis/output/2024-07-10-angles-old-new.csv") 
+data <- read.csv("output/2024-07-10-angles-old-new.csv") 
 data <- data[, !names(data) %in% c("X")]
 
 model <- lm(angles_uv ~ . - row_id  - align_shift - assistant_is_anthropomorphic_x - assistant_is_coherent_x - assistant_is_anthropomorphic_y - assistant_is_coherent_y - cos_v - cos_u, data = data)
