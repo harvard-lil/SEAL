@@ -38,7 +38,7 @@ nano .env # (or any text editor)
 
 ## CLI: `compare`
 
-This command allows for evaluating a series of reward models against the Anthropic/hh-rlhf alignment dataset and assesses whether they align with preferences expressed in the dataset.
+This command allows for evaluating a series of reward models against the Anthropic/hh-rlhf alignment dataset by assessing whether they align with preferences expressed in the dataset.
 
 Currently set up to evaluate [Anthropic/hh-rlhf](https://huggingface.co/datasets/Anthropic/hh-rlhf) against:
 - [OpenAssistant/reward-model-deberta-v3-large-v2](https://huggingface.co/OpenAssistant/reward-model-deberta-v3-large-v2)
@@ -66,7 +66,7 @@ This command slightly rewrites a set number of rows from the Anthropic/hh-rlhf a
   - [OpenAssistant/reward-model-deberta-v3-large-v2](https://huggingface.co/OpenAssistant/reward-model-deberta-v3-large-v2), which was fine-tuned using Anthropic/hh-rlhf (`ALIGNED`)
   - [OpenAssistant/reward-model-deberta-v3-large](https://huggingface.co/OpenAssistant/reward-model-deberta-v3-large), which was not (`CONTROL`)
 - A text-similarity model ([BAAI/bge-m3](https://huggingface.co/BAAI/bge-m3)), to control how much the rewriting affected the "meaning" of the prompts.
-- OpenAI's GPT-4-Turbo run part of the `taxonomy` experiment on both original and rewritten prompts, as a way to control if GPT-4 Turbo's assessment was also affected by this rewritting.
+- OpenAI's GPT-4-Turbo, used to run part of the `taxonomy` experiment on both original and rewritten prompts, as a way to control if GPT-4 Turbo's assessment was also affected by this rewriting.
 
 By default, this command uses the [Ollama API](https://ollama.com/) to run inference against [mistral:7b-instruct-fp16](https://ollama.com/library/mistral:7b-instruct-fp16). An Ollama server must be ready, and the targeted model must be available.
 
@@ -88,7 +88,7 @@ Results are saved as CSV under `data/rewrite`.
 
 **Alignment Taxonomy part 1:**
 
-In this experiment, GPT-X is used to generate an alignment taxonomy of the Anthropic/hh-rlhf dataset.
+In this experiment, GPT-X is used to generate an alignment taxonomy of the Anthropic/hh-rlhf alignment dataset.
 This command generates a ["batch" file](https://platform.openai.com/docs/api-reference/batch) that can be used by the OpenAI API to process a large amount of requests efficiently.
 The command will also perform a cost estimate and ask for confirmation before uploading files for processing.
 
@@ -113,9 +113,10 @@ Intermediary data is saved under `data/taxonomy-input`.
 **Alignment Taxonomy part 2:**
 
 In this experiment, GPT-X is used to generate an alignment taxonomy of the Anthropic/hh-rlhf dataset.
+
 This command allows for pulling a series of completed batches from the OpenAI API and:
-- Pull the raw results of the various batches into a single JSONL file
-- Validate and save processed results in a single CSV. This format allows for easier processing and for associating analysis results with their original prompts.
+- Merging the raw results of the various batches into a single JSONL file
+- Validating and saving processed results in a single CSV. This format allows for easier processing and for associating analysis results with their original prompts.
 
 This command allows for patching invalid entries on the fly using the OpenAI API (optional).
 
@@ -123,7 +124,7 @@ This command allows for patching invalid entries on the fly using the OpenAI API
 poetry run python seal.py taxonomy process-batch --batch-ids="batch_foobar1,batch_foobar2,batch_foobar3"
 ```
 
-Results are saved as under `data/taxonomy-output`.
+Results are saved as CSV under `data/taxonomy-output`.
 
 [👆 Back to the summary](#summary)
 
