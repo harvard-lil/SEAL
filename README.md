@@ -1,8 +1,8 @@
 # SEAL: Systematic Error Analysis for Value ALignment
 
-Official repo for the paper **"SEAL: Systematic Error Analysis for Value ALignment"** by Manon Revel, Matteo Cargnelutti, Tyna Eloundou and Greg Leppert (2024)
+Official repo for the paper **["SEAL: Systematic Error Analysis for Value ALignment"](https://arxiv.org/abs/2408.10270)** by Manon Revel, Matteo Cargnelutti, Tyna Eloundou and Greg Leppert (2024)
 
-> 🚧 Work in progress
+Paper: https://arxiv.org/abs/2408.10270 
 
 ## Summary
 - [Getting started](#getting-started)
@@ -160,6 +160,16 @@ Results are saved as under `data/taxonomy-control`.
 
 ## Cite
 
-> TODO
+```
+@misc{revel2024sealsystematicerroranalysis,
+      title={SEAL: Systematic Error Analysis for Value ALignment}, 
+      author={Manon Revel and Matteo Cargnelutti and Tyna Eloundou and Greg Leppert},
+      year={2024},
+      eprint={2408.10270},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2408.10270}, 
+}
+```
 
 [👆 Back to the summary](#summary)
